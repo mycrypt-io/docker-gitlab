@@ -134,10 +134,10 @@ fi
 sed -i 's,HostKey /etc/ssh/,HostKey /home/git/data/ssh/,g' -i /etc/ssh/sshd_config
 
 # start supervisord
-/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+/usr/bin/supervisord -c /etc/supervisor/supervisord.conf &
 
-echo "Starting openssh server..."
-supervisorctl start sshd >/dev/null
+#echo "Starting openssh server..."
+#supervisorctl start sshd >/dev/null
 
 # copy configuration templates
 case "${GITLAB_HTTPS}" in
